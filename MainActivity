@@ -1,0 +1,150 @@
+package com.example.mycontactapp
+
+import android.content.ClipData
+import android.media.RouteListingPreference
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.material3.Button
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.mycontactapp.ui.theme.MyContactAppTheme
+
+class MainActivity : ComponentActivity() {
+    companion object{
+        val item = listOf(
+            Item(
+                title = "auntie",
+                number = 9999999,
+                image = R.drawable.auntie)  ,
+            Item (
+                title = "brother",
+                number = 6666666,
+                image = R.drawable.brother) ,
+            Item(
+                title = "friend_1",
+                number = 88888,
+                image = R.drawable.friend_1) ,
+            Item(
+                title = "friend_2",
+                number = 333333,
+                image = R.drawable.friend_1) ,
+            Item(
+                title = "grandfather",
+                number = 44444,
+                image = R.drawable.grandfather) ,
+            Item(
+                title = "granny",
+                number = 11111,
+                image = R.drawable.granny) ,
+            Item(
+                title = "neighbour",
+                number = 11222,
+                image = R.drawable.neigbour) ,
+            Item(
+                title = "sister",
+                number = 888899,
+                image = R.drawable.sister) ,
+            Item(
+                title = "uncle",
+                number = 49585,
+                image = R.drawable.uncle)
+
+            )
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContent {
+            MyContactAppTheme {
+                val navHostController = rememberNavController()
+                NavHost(navController = navHostController, startDestination = "homescreen") {
+                    composable("homescreen"){
+                        HomeScreen(navHostController = navHostController)
+                    }
+                }
+
+
+
+                }
+            }
+        }
+
+
+}
+
+
+
+@Composable
+fun HomeScreen(
+    modifier: Modifier =Modifier ,
+    navHostController: NavHostController
+                ) {
+    Column (
+        modifier = modifier.fillMaxSize() ,
+        horizontalAlignment =  Alignment.CenterHorizontally ,
+        verticalArrangement = Arrangement.Center
+    ){
+        Button(onClick = { navHostController.navigate("homescreen") }) {
+            Text(text = "HOME") }
+        Spacer(modifier = Modifier.height(30.dp))
+        Button(onClick = { navHostController.navigate("callscreen") }) {
+            Text(text = "DIAL") }
+        Spacer(modifier = Modifier.height(30.dp))
+
+    }
+
+
+
+
+}
+
