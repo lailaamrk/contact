@@ -1,0 +1,10 @@
+package com.example.mycontactapp
+
+import androidx.annotation.DrawableRes
+
+data class Item(
+    val title: String ,
+    val number:Int ,
+    @DrawableRes val image: Int){
+
+}
